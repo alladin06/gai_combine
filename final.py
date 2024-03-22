@@ -2,9 +2,9 @@ import streamlit as st
 
 # Define URLs for each language
 urls = {
-    "English": "https://example.com/english",
-    "German": "https://example.com/german",
-    "Finnish": "https://example.com/finnish"
+    "English": "https://gaienglish.streamlit.app/",
+    "German": "https://gaigerman.streamlit.app/",
+    "Finnish": "https://gaifinnish.streamlit.app/"
 }
 
 # Streamlit app
