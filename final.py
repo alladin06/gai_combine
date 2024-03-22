@@ -1,28 +1,20 @@
 import streamlit as st
 
-# Define URLs for each language
-urls = {
-    "English": "https://gaienglish.streamlit.app/",
-    "German": "https://gaigerman.streamlit.app/",
-    "Finnish": "https://gaifinnish.streamlit.app/"
-}
+def redirect_url(language):
+    if language == 'English':
+        return 'https://gaienglish.streamlit.app/'
+    elif language == 'German':
+        return 'https://gaifinnish.streamlit.app/'
+    elif language == 'Finnish':
+        return 'https://gaifinnish.streamlit.app/'
 
-# Streamlit app
 def main():
-    st.title("Language Selection")
-    
-    # Ask user to choose a language
-    language = st.selectbox("Choose a language", list(urls.keys()))
-    
-    # Redirect to the corresponding website based on the selected language
-    if st.button("Go to Website"):
-        selected_url = urls.get(language)
-        if selected_url:
-            st.write(f"Redirecting to {selected_url}...")
-            # You can use st.markdown to open the website in an iframe
-            st.markdown(f'<iframe src="{selected_url}" width="800" height="600"></iframe>', unsafe_allow_html=True)
-        else:
-            st.error("Invalid language selection")
+    st.title('Language Redirect App')
+    language = st.selectbox('Select Language', ['English', 'German', 'Finnish'])
+    if st.button('Go'):
+        url = redirect_url(language)
+        st.success(f'Redirecting to {url}')
+        st.markdown(f'<meta http-equiv="refresh" content="0;URL={url}" />', unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
