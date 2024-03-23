@@ -4,7 +4,7 @@ def redirect_url(language):
     if language == 'English':
         return 'https://gaienglish.streamlit.app/'
     elif language == 'German':
-        return 'https://gaifinnish.streamlit.app/'
+        return 'https://gaigerman.streamlit.app/'
     elif language == 'Finnish':
         return 'https://gaifinnish.streamlit.app/'
 
