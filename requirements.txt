@@ -1,2 +1,2 @@
 streamlit
-pycopy-webbrowser
+requests
