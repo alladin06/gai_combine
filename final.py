@@ -1,5 +1,6 @@
 import streamlit as st
-import webbrowser
+import requests
+
 def redirect_url(language):
     if language == 'English':
         return 'https://gaienglish.streamlit.app/'
@@ -12,13 +13,13 @@ def main():
     st.title('Language Redirect App')
     language = st.selectbox('Select Language', ['English', 'German', 'Finnish'])
     if st.button('Go'):
-        if language=='English':
-            webbrowser.open_new_tab("https://gaienglish.streamlit.app/")
-        elif language=='German':
-           webbrowser.open_new_tab("https://gaigerman.streamlit.app/") 
+        url = redirect_url(language)
+        response = requests.get(url)
+        if response.status_code == 200:
+            st.success(f"Redirecting to {language} site...")
+            st.write(f"Redirect URL: {response.url}")
         else:
-            webbrowser.open_new_tab("https://gaifinnish.streamlit.app/")
+            st.error("Failed to redirect")
 
 if __name__ == "__main__":
     main()
-
